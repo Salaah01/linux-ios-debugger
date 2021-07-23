@@ -103,8 +103,3 @@ ldconfig
 
 echo -e "\033[93mInstalling remotedebug-ios-webkit-adapter\033[0m"
 npm install remotedebug-ios-webkit-adapter -g
-
-read -n 1 -rsp $'\033[92mPlease connect your iOS device and press any key to continue...\033[0m\n'
-idevicepair pair
-
-read -n 1 -rsp $'\033[92mPlease confirm that you want to trust the device on your iOS device and press any key to continue...\033[0m\n'

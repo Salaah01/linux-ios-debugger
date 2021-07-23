@@ -10,7 +10,8 @@ This program will allow you to run the inspect element tool using the Google Chr
 ## Inspecting Your iOS Device
 1. Open the downloaded browser and navigate to `chrome://inspect/#devices`.
 2. Run `./start.sh`.
-3. You should now be able to see the inspect options which will allow you to open the developer tools on your browser whilst you navigate on your iOS device.
+3. Click on configure and add `localhost:9000`.
+4. You should now be able to see the inspect options which will allow you to open the developer tools on your browser whilst you navigate on your iOS device.
 
 ## Credits
 This script comes from following compiling the instructions on https://onestepcode.com/debugging-ios-on-linux/ into a single script.
