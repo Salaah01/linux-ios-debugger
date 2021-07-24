@@ -1,16 +1,16 @@
 #!/usr/bin/bash
 
+set -e
+
+on_exit() {
+    [[ $? != 0 ]] || echo -e "\033[91mExiting due to an error.\033[0m"
+}
+
+trap on_exit EXIT
+
 echo ROOT_DIR="/tmp/linux-ios-debugger/"
 mkdir -p $ROOT_DIR
 cd $ROOT_DIR
-
-exit_on_error() {
-    error=$?
-    if [[ $error -ne 0 ]]; then
-        echo -e "\033[91mExiting due to an error.\033[0m"
-        exit $error
-    fi
-}
 
 echo -e "\033[93mInstalling Dependencies\033[0m"
 
@@ -24,16 +24,14 @@ apt install -y \
     libtool-bin \
     doxygen \
     cython
-exit_on_error
 
 git clone https://github.com/libimobiledevice/libplist.git
 cd libplist
 ./autogen.sh
-exit_on_error
+
 make
-exit_on_error
+
 make install
-exit_on_error
 
 echo -e "\033[93mInstalling libusbmuxd\033[0m"
 cd ..
@@ -43,11 +41,10 @@ apt install -y \
 git clone https://github.com/libimobiledevice/libusbmuxd.git
 cd libusbmuxd
 ./autogen.sh
-exit_on_error
+
 make
-exit_on_error
+
 make install
-exit_on_error
 
 echo -e "\033[93mInstalling libimobiledevice\033[0m"
 cd ..
@@ -57,11 +54,10 @@ apt install -y \
 git clone https://github.com/libimobiledevice/libimobiledevice.git
 cd libimobiledevice
 ./autogen.sh
-exit_on_error
+
 make
-exit_on_error
+
 make install
-exit_on_error
 
 echo -e "\033[93mInstalling usbmuxd\033[0m"
 cd ..
@@ -73,11 +69,10 @@ apt install -y \
 git clone https://github.com/libimobiledevice/usbmuxd.git
 cd usbmuxd
 ./autogen.sh
-exit_on_error
+
 make
-exit_on_error
+
 make install
-exit_on_error
 
 echo -e "\033[93mInstalling ios-webkit-debug-proxy\033[0m"
 
@@ -92,11 +87,11 @@ apt install -y \
     libssl-dev
 git clone https://github.com/google/ios-webkit-debug-proxy.git
 cd ios-webkit-debug-proxy
-exit_on_error
+
 ./autogen.sh
-exit_on_error
+
 make
-exit_on_error
+
 make install
 
 ldconfig
