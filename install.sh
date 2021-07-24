@@ -3,7 +3,7 @@
 set -e
 
 on_exit() {
-    [[ $? != 0 ]] || echo -e "\033[91mExiting due to an error.\033[0m"
+    [[ $? == 0 ]] || echo -e "\033[91mExiting due to an error.\033[0m"
 }
 
 trap on_exit EXIT
