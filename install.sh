@@ -8,7 +8,7 @@ on_exit() {
 
 trap on_exit EXIT
 
-echo ROOT_DIR="/tmp/linux-ios-debugger/"
+echo ROOT_DIR=$(mktemp -d -t linux-ios-debugger-XXXXXXXXXXXX)
 mkdir -p $ROOT_DIR
 cd $ROOT_DIR
 
@@ -98,3 +98,6 @@ ldconfig
 
 echo -e "\033[93mInstalling remotedebug-ios-webkit-adapter\033[0m"
 npm install remotedebug-ios-webkit-adapter -g
+
+# Clean up
+rm -rf $ROOT_DIR
