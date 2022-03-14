@@ -1,9 +1,10 @@
 # Linux iOS Debugger
-This program will allow you to run the inspect element tool using the Google Chrome/Chromium browser on your Linux (Debian) machine.
+This script will allow you to run the inspect element tool using the Google Chrome/Chromium browser on your Linux machine.
+At the moment, this script works for Debian based distros (uses `apt install`). If you need this ability on other distros, have a look into the install script and replicate in your distro.
 
 ## Installation
-1. Install either Google Chrome or Chromium form the software center.
-2. Open your iOS, go to **Settings**, navigate to **Safari**, slick on "Advanced" and enable "Web Inspector".
+1. Install either Google Chrome or an Chromium based browser from software center.
+2. Open your iOS, device, go to **Settings**, navigate to **Safari**, click on "Advanced" and enable "Web Inspector".
 3. Run `./install.sh`
 4. Follow the on screen instructions.
 
