@@ -8,7 +8,8 @@ on_exit() {
 
 trap on_exit EXIT
 
-echo ROOT_DIR=$(mktemp -d -t linux-ios-debugger-XXXXXXXXXXXX)
+ROOT_DIR=$(mktemp -d -t linux-ios-debugger-XXXXXXXXXXXX)
+echo $ROOT_DIR
 mkdir -p $ROOT_DIR
 cd $ROOT_DIR
 
